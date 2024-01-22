@@ -2,11 +2,109 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navigation from "../../components/global/Navigation.astro";
 import Footer from "../../components/global/Footer.astro";
+import Hero from "../../components/services/Hero.astro";
+import Content from "../../components/services/Content.astro"
 
 ---
 
 <BaseLayout>
   <Navigation />
+  
+  <Hero
+    tagline="Furniture Service"
+    image={{
+      src: '/services/furniture-1.jpg',
+      alt: 'AstroWind Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      Vancouver Furniture Movers: <br/>
+      <span class="text-accent dark:text-orange highlight">
+        BETTER
+      </span>
+      THAN OTHER MOVING COMPANIES.<br />
+    </Fragment>
 
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Small Short Notice Moves - Single item moves: <span class="font-semibold">Furniture, Appliance, Couch, Mattress, Fridge, Tables, etc</span>.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Content
+    title="WrapItMoving's Single Item Movers"
+    subtitle="Whether you need a whole house moved or just a few items delivered, Skip-Moving Delivery will provide the highest level of customer service. Enjoy peace of mind when you partner with us to help with delivery.Our services have been expanding over the years with our moving experience. We provide small move services, since we are aware that each customer has specific demands. From single wall art pieces to statues we provide the services needed. "
+    isReversed
+    items={[
+      {
+        title: '• A delivery specialist to walk you through the process',
+      },
+      {
+        title: '• Customized delivery plan',
+      },
+      {
+        title: '• Wrapping and protection of all furniture',
+      },
+      {
+        title: '• Disposal of all materials used by Skip-Moving',
+      },
+    ]}
+    image={{
+      src: '/services/furniture-2.png',
+      alt: 'Startup Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        Planning & Protection
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: '• Pick-up'
+      },
+      {
+        title: '• Driving, parking tickets, and fuel management'
+      },
+      {
+        title: '• Labour and equipment handling'
+      },
+      {
+        title: '• Delivery services'
+      },
+      {
+        title: '• Tips to protect your back during the move'
+      },
+      {
+        title: '• Wall and floor protection measures'
+      },
+      {
+        title: '• Flat rates for budget-friendly moving'
+      },
+    ]}
+    image={{
+      src: '/services/furniture-3.jpg',
+      alt: 'SaaS Businesses Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        Transit, Labor, and Peace of Mind
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
   <Footer/>
 </BaseLayout>

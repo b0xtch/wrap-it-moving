@@ -2,11 +2,101 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navigation from "../../components/global/Navigation.astro";
 import Footer from "../../components/global/Footer.astro";
+import Hero from "../../components/services/Hero.astro";
+import Content from "../../components/services/Content.astro"
 
 ---
 
 <BaseLayout>
   <Navigation />
+  
+  <Hero
+    tagline="Long Distance Service"
+    image={{
+      src: '/services/moving-service-1.webp',
+      alt: 'AstroWind Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      LONG DISTANCE MOVERS NEAR YOU
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Skip Moving helps you with your long-distance move.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Content
+    title="Long-distance moving has never been easier"
+    subtitle="Looking for a reliable long-distance moving company in Vancouver, BC to help you relocate to Alberta stress-free? Look no further than Skip Moving! With over 10 years of experience in the industry, we have been providing exceptional moving services to customers moving from Vancouver with in BC and to Alberta. Whether you're moving to Kamloops, Kelowna, Williams Lake, Calgary, Edmonton, or any other city in British Columbia and Alberta, our team of experts is dedicated to making your move as smooth and seamless as possible. From packing and loading to transportation and unloading, we offer a full range of moving services to meet your specific needs. When you choose Skip Moving, you can rest assured that your belongings are in safe hands. Our experienced and responsible moving staff will handle your items with the utmost care, and we offer comprehensive insurance coverage for all of your belongings. Plus we guarantee the fastest delivery times around. Contact us today to request a moving quote and let us help you make your long-distance move to Alberta a success!"
+    isReversed
+    items={[
+      {
+        title: '• Sculptures & Ornaments – Packed in sturdy cardboard box with bubble wrap'
+      },
+      {
+        title: '• Electronics – Wrapped and packed in cardboard box with cabling bundled'
+      },
+      {
+        title: '• Pianos — Ultimate safety and protection for your favorite musical instrument'
+      },
+      {
+        title: '• TVs & Monitors – Carefully wrapped with blanket and shrink wraps for extra protection'
+      },
+      {
+        title: '• Clothes & Shoes – Wrapped in wardrobe boxes'
+      },
+      {
+        title: '• Mirrors & Frames – Fully protected with blankets or cardboard box'
+      },
+      {
+        title: '• Lamps & Light Fittings – Individually wrapped with shades removed'
+      },
+      {
+        title: '• Paintings & Art – Packed in picture crates with extra protection'
+      }
+    ]}
+    image={{
+      src: '/services/moving-service-2.jpeg',
+      alt: 'Startup Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        Protecting More Than Your Peace Of Mind <br /><span class="text-xl">Your Valuable Belongings, Prized Possessions And New Home Receive Extra Care</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Description:',
+        description: `These services can be bundled in your Guaranteed Price move. Simply request the services you need and we’ll quote you a flat rate—no surprises later.`,
+      },
+    ]}
+    image={{
+      src: '/services/moving-service-3.jpg.webp',
+      alt: 'SaaS Businesses Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        No Surprises Later
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <Footer/>
 </BaseLayout>

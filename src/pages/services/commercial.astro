@@ -2,11 +2,106 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navigation from "../../components/global/Navigation.astro";
 import Footer from "../../components/global/Footer.astro";
+import Hero from "../../components/services/Hero.astro";
+import Content from "../../components/services/Content.astro"
 
 ---
 
 <BaseLayout>
   <Navigation />
+  
+  <Hero
+    tagline="Commercial Service"
+    image={{
+      src: '/services/moving-service-1.webp',
+      alt: 'AstroWind Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      COMMERCIAL MOVING: <br/>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Are you in need of a bigger vehicle to haul your building supplies? We have box trucks and can deliver your materials on time around Greater Vancouver area!
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Content
+    title="GET YOUR SUPPLIES DELIVERED RIGHT TO YOUR JOBSITE."
+    subtitle="We are dedicated to providing efficient, accurate, and timely deliveries as part of our commitment to excellent customer service. We make every effort to protect your materials from the elements and other sources of damage. Plus, we’ll leave your job site in the same condition as it was when we arrived. We unload and stock your building supplies with each customer's specific requirements in mind."
+    isReversed
+    items={[
+      {
+        title: '1. Order Your Materials From Whatever Supplier You Normally Deal With',
+        description:
+          'Once you place and pay for your order, select "pick up" as your delivery option.',
+      },
+      {
+        title: '2. Request A Quote',
+        description:
+          "Fill out our request form or call us, and we'll give you a quote and set up a delivery. This is where confirm all the details.",
+      },
+      {
+        title: '3. Accept Your Delivery',
+        description:
+          'Our team will pick-up your order, and deliver it to the jobsite you requested, simple and fast.',
+      },
+    ]}
+    image={{
+      src: '/services/moving-service-2.jpeg',
+      alt: 'Startup Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        How it works
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: '• Laminate Floors'
+      },
+      {
+        title: '• Lumber'
+      },
+      {
+        title: '• Plywood, OSB, & MDF'
+      },
+      {
+        title: '• Drywall'
+      },
+      {
+        title: '• Insulation'
+      },
+      {
+        title: '• Appliances'
+      }
+    ]}
+    image={{
+      src: '/services/moving-service-3.jpg.webp',
+      alt: 'SaaS Businesses Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+        Delivery Options
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <Footer/>
 </BaseLayout>
