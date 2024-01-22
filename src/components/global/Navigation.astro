@@ -1,3 +1,65 @@
+---
+
+export const trim = (str = '', ch?: string) => {
+  let start = 0,
+    end = str.length || 0;
+  while (start < end && str[start] === ch) ++start;
+  while (end > start && str[end - 1] === ch) --end;
+  return start > 0 || end < str.length ? str.substring(start, end) : str;
+};
+
+export const trimSlash = (s: string) => trim(trim(s, '/'));
+
+const data =  {
+  links: [
+    {
+      text: "Services",
+      links: [
+            {
+              text: 'Moving',
+              href: '/services/moving',
+            },
+            {
+              text: 'Furniture Move',
+              href: '/services/furniture',
+            },
+            {
+              text: 'Junk Removal',
+              href: '/services/junk',
+            },
+            {
+              text: 'Commercial Moves',
+              href: '/services/commercial',
+            },
+            {
+              text: 'Long Distance',
+              href: '/services/long-distance',
+            },
+      ],
+    },
+    {
+      text: "Faq",
+      links: [
+            {
+              text: 'FAQ',
+              href: '/faq/faq',
+            },
+            {
+              text: 'Moving Tips',
+              href: '/faq/moving',
+            },
+        ],
+    },
+    {
+      text: 'Pricing',
+      href: '/#pricing',
+    },
+  ]
+};
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
+---
+
 <section class="bg-white border-b border-black/5">
   <div class="w-full mx-auto md:px-12 px-8 max-w-7xl lg:px-16">
     <div
@@ -33,28 +95,53 @@
           </svg>
         </button>
       </div>
-      <nav
-        :class="{'flex': open, 'hidden': !open}"
-        class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
-        <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400 lg:ml-auto"
-          href="/#features">Services</a
-        >
-        <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400"
-          href="/#pricing">Pricing</a
-        >
 
-        <a
-          class="px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400"
-          href="/faq">Faq</a
-        >
-
+      <nav :class="{'flex': open, 'hidden': !open}" class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
+        <ul class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium justify-center items-center"> <!-- Add centering utilities here -->
+          {
+            data.links.map(({ text, href, links }) => (
+              <li class={links?.length ? "group" : ""}>
+                {links?.length ? (
+                  <>
+                    <button class="px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400 lg:ml-auto items-center">    
+                      {text}
+                    </button>
+                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                        {links.map(({ text: text2, href: href2 }) => (
+                          <li>
+                            <a
+                              class:list={[
+                                "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                                { "aw-link-active" : href2 === currentPath}
+                              ]}
+                              href={href2}
+                            >
+                              {text2}
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a
+                    class:list={[
+                      "px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400 items-center",
+                      { "aw-link-active": href === currentPath }
+                    ]}
+                    href={href}
+                  >
+                    {text}
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
         <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
           <a
-            href="/#contact"
-            class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium text-black bg-gray-100 rounded-lg group focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-gray-50 active:bg-gray-200 active:text-accent-400 focus-visible:outline-black">
-            Get Quote
+            href="tel:+1-236-867-8800"
+            class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full">
+            Call Now
           </a>
         </div>
       </nav>

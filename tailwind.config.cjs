@@ -87,8 +87,8 @@ module.exports = {
     extend: {
       colors: {
         black: "#121212",
-        orange:"#FF5034",
-        blue:"#022754", 
+        orange: "#FF5034",
+        blue: "#022754",
         accent: {
           50: "#FF5034",
           100: "#FF5034",
@@ -99,7 +99,7 @@ module.exports = {
           600: "#FF5034",
           700: "#FF5034",
           800: "#FF5034",
-          900: "#FF5034"
+          900: "#FF5034",
         },
       },
       fontFamily: {

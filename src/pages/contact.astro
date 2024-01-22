@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import Footer from "../components/global/Footer.astro";
+
+
+---
+
+<BaseLayout>
+  <Navigation />
+      <!-- Contact Information -->
+      <div class="relative w-full mx-auto max-w-7xl items-center py-12 pb-12" id="contact"> 
+        <div class="bg-gray-100 p-8 rounded-3xl">
+            <div class="form-container mx-auto bg-white p-8 rounded-3xl" style="max-width: 7xl; border: 1px solid #cbd5e0;">
+              <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 10px;">Get A Free Quote Now</h3>
+              <form>
+                  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                      <div style="flex-basis: 33%;">
+                          <label for="moving_from" style="display: block; font-size: 14px; margin-bottom: 5px;">MOVING FROM *</label>
+                          <input type="text" id="moving_from" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" placeholder="Enter a location">
+                      </div>
+                      <div style="flex-basis: 33%;">
+                          <label for="moving_to" style="display: block; font-size: 14px; margin-bottom: 5px;">MOVING TO</label>
+                          <input type="text" id="moving_to" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" placeholder="Enter a location">
+                      </div>
+                      <div style="flex-basis: 33%;">
+                          <label for="type_of_move" style="display: block; font-size: 14px; margin-bottom: 5px;">TYPE OF MOVE *</label>
+                          <select id="type_of_move" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;">
+                              <option value="Local Residential Move">Local Residential Move</option>
+                              <!-- Other options here -->
+                          </select>
+                      </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <div style="flex-basis: 50%;">
+                        <label for="name" style="display: block; font-size: 14px; margin-bottom: 5px;">NAME *</label>
+                        <input type="text" id="name" name="name" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
+                        <label for="email" style="display: block; font-size: 14px; margin-top: 10px; margin-bottom: 5px;">EMAIL *</label>
+                        <input type="email" id="email" name="email" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
+                    </div>
+                    <div style="flex-basis: 50%;">
+                        <label for="phone" style="display: block; font-size: 14px; margin-bottom: 5px;">PHONE *</label>
+                        <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
+                        <label for="move_date" style="display: block; font-size: 14px; margin-top: 10px; margin-bottom: 5px;">PREFERRED MOVE DATE</label>
+                        <input type="date" id="move_date" name="move_date" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;">
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <label for="additional_info" style="display: block; font-size: 14px; margin-bottom: 5px;">ADDITIONAL INFORMATION</label>
+                    <textarea id="additional_info" name="additional_info" style="width: 100%; height: 170px; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"></textarea>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <input type="submit" value="Submit for Free Quote" style="background-color: #FF5034; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                </div>
+            </form>
+        </div>
+      </div>
+      </div>
+  <Footer />
+</BaseLayout>
