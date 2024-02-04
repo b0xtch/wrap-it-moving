@@ -17,8 +17,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     
         // Sending email
         const msg = {
-            // to: 'info.wrapitmoving@gmail.com', // Change to your recipient
-            to: 'botchxyz@gmail.com', // Change to your recipient
+            to: 'info.wrapitmoving@gmail.com', // Change to your recipient
             from: 'info.wrapitmoving@gmail.com', // Change to your verified sender
             subject: 'Quote Submission from website',
             text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMove Date: ${move_date}\n\n${additional_info}`,
