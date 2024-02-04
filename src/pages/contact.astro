@@ -3,7 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navigation from "../components/global/Navigation.astro";
 import Footer from "../components/global/Footer.astro";
 
+// if (Astro.request.method === 'POST') {
 
+// }
+
+// async function submit(e) {
+//     console.log("here")
+//     // e.preventDefault();
+//     // const formData = new FormData(e.target as HTMLFormElement);
+//     // const response = await fetch("/api/send", {
+//     //   method: "POST",
+//     //   body: formData,
+//     // });
+//     // const data = await response.json();
+
+//     // if (data.message) {
+//     //   setResponseMessage(data.message);
+//     // }
+// }
 ---
 
 <BaseLayout>
@@ -13,7 +30,7 @@ import Footer from "../components/global/Footer.astro";
         <div class="bg-gray-100 p-8 rounded-3xl">
             <div class="form-container mx-auto bg-white p-8 rounded-3xl" style="max-width: 7xl; border: 1px solid #cbd5e0;">
               <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 10px;">Get A Free Quote Now</h3>
-              <form>
+              <form action="/api/send" method="post">
                   <div style="display: flex; justify-content: space-between; margin-top: 20px;">
                       <div style="flex-basis: 33%;">
                           <label for="moving_from" style="display: block; font-size: 14px; margin-bottom: 5px;">MOVING FROM *</label>
