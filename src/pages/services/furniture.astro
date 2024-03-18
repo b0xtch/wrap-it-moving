@@ -18,36 +18,42 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="title">
-      Vancouver Furniture Movers: <br/>
+      VANCOUVER’S PREMIER CHOICE: <br/>
       <span class="text-accent dark:text-orange highlight">
-        BETTER
+        FOR
       </span>
-      THAN OTHER MOVING COMPANIES.<br />
+        SMALL MOVES AND DELIVERIES.<br />
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Small Short Notice Moves - Single item moves: <span class="font-semibold">Furniture, Appliance, Couch, Mattress, Fridge, Tables, etc</span>.
+        Small Short Notice Moves - Single item moves: <span class="font-semibold">Furniture, appliance, couch, mattress, fridge, tables, large size or quantity items from a store, etc.</span>.
       </span>
     </Fragment>
   </Hero>
 
   <Content
-    title="WrapItMoving's Single Item Movers"
-    subtitle="Whether you require the relocation of an entire household or the delivery of a select few items, Wrap It Moving Delivery is dedicated to offering the utmost in customer service excellence. Partnering with us for your delivery needs ensures a worry-free experience. Over the years, our expertise in the moving industry has allowed us to expand our service offerings. We specialize in accommodating unique customer requirements, including small-scale moves, recognizing that each client has distinct needs. Whether it's handling single wall art pieces or transporting statues, we provide the tailored services you require. "
+    title="Single Item Moving and Delivery"
+    subtitle="Wrap-it Moving is here to help you to move your entire household, or just a few items.  No move is too big or too small for our dedicated team!  Whether it is handling a single wall art piece or a couch you bought on Marketplace, picking up wood planks for your home renovation or collecting a bulk order from a supplies store, we provide the tailored service that meets your unique needs."
     isReversed
     items={[
       {
-        title: '• A delivery specialist to walk you through the process',
+        title: '• customize a delivery plan',
       },
       {
-        title: '• Customized delivery plan',
+        title: '• help wrap and protect the item(s) on request',
       },
       {
-        title: '• Wrapping and protection of all furniture',
+        title: '• dispose of wrapping material used by Wrap-it Moving',
       },
       {
-        title: '• Disposal of all materials used by Wrap It Moving',
+        title: '• Disposal of all materials used by Wrap-it Moving',
+      },
+      {
+        title: '• safely move or deliver item(s)',
+      },
+      {
+        title: '• include fuel and wrapping material cost in the rate',
       },
     ]}
     image={{
@@ -57,7 +63,7 @@ import Content from "../../components/services/Content.astro"
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
-        Planning & Protection
+        You Can Count on Us
       </h3>
     </Fragment>
 
@@ -66,7 +72,7 @@ import Content from "../../components/services/Content.astro"
     </Fragment>
   </Content>
 
-  <Content
+  <!-- <Content
     isAfterContent={true}
     items={[
       {
@@ -105,6 +111,6 @@ import Content from "../../components/services/Content.astro"
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Content>
+  </Content> -->
   <Footer/>
 </BaseLayout>
