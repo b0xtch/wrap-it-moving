@@ -11,9 +11,6 @@ import { Code } from "astro:components";
           class="text-black font-extrabold lg:text-5xl text-4xl tracking-tight">
           Pricing
         </p>
-        <p class="text-gray-500 lg:text-xl max-w-2xl mt-4 mx-auto text-base">
-          Because we want to make it easier for you
-        </p>
       </div>
       <div class="mt-12 space-y-12 divide-y-2">
         <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
@@ -33,13 +30,38 @@ import { Code } from "astro:components";
           <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
             <span
               class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              No Travel Time Fee!
+              How Do We Charge     
+            </span>
+          </div>
+          <div class="lg:col-span-2">
+            <p class="text-gray-500 text-sm">
+              We start the clock when our team of movers arrives at your pick-up address, or at the appointed time.  We stop the clock when the job is done.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
+          <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
+            <span
+              class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
+              Travel Time
             </span>
           </div>
           <div class="space-y-4 lg:col-span-2">
             <p class="text-gray-500 text-sm">
-              At Wrap-it Moving, we don't charge for travel time. We start the clock when we arrive at your pick-up location and stop it when we complete the move at your final destination.
+              Travel time is driving time from our company location to the pick-up address, and from the drop-off address back to our company.  Please see our travel time zone map below for the rates.
             </p>
+            <!-- Add Image Here -->
+    <img src="/travelzone.png" alt="Travel Zone Map" class="w-full h-auto my-4 rounded-lg">
+    <!-- Add Zone Descriptions Here -->
+    <p class="text-gray-500 text-sm">
+      <strong>Zone 1 (blue):</strong> 1 hour travel time for Vancouver, Burnaby, Richmond, and Delta
+    </p>
+    <p class="text-gray-500 text-sm">
+      <strong>Zone 2 (green):</strong> 1.5 hour travel time for West Vancouver, North Vancouver, Port Moody, Coquitlam, New Westminster, Port Coquitlam, Pitt Meadows, Maple Ridge, South Westminster, Surrey, and Langley
+    </p>
+    <p class="text-gray-500 text-sm">
+      <strong>Zone 3 (orange):</strong> 2 hour travel time for Mission
+    </p>
           </div>
         </div>
         <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
@@ -51,7 +73,7 @@ import { Code } from "astro:components";
           </div>
           <div class="lg:col-span-2">
             <p class="text-gray-500 text-sm">
-              Our minimum hour requirements vary in different Lower Mainland areas. For instance, if our movers finish the job in less than 3 hours, you'll still be charged for a minimum of 3 hours. This is to ensure clarity and fairness for our clients.
+              We have no minimum hour requirements. You will only be charged for the actual time our movers spend on your job, ensuring transparency and fairness for all our clients.
             </p>
           </div>
         </div>
@@ -64,9 +86,18 @@ import { Code } from "astro:components";
           </div>
           <div class="lg:col-span-2">
             <p class="text-gray-500 text-sm">
-              Every move is unique, and some may be more challenging than others. For instance, if we have to carry items up several flights of stairs without an elevator, it may lead to an increase in the base hourly rate. There are various exceptions, such as handling very large objects, covering long distances while moving, and encountering other obstacles that can make the moving process harder.
+              Local relocations are charged on an hourly basis, plus travel time.
 
-              Before you confirm the move, we will provide you with an hourly rate estimate. However, to give you the most accurate estimate, we need to know all the details of your move in advance. The more information you provide us before the moving date, the better we can calculate the right rate for you.
+Most single item or furniture moves, delivery services, junk removal, and long-distance relocations are charged at a flat rate.
+Contact us for a personalized quote!
+
+We do not charge extra for locations with stairs or long distances between parking and the entrance of the building. However, please keep in mind that these factors may add time to your move.
+
+Additional charges may apply for very large or heavy objects such as pianos, sub-zero fridges, or other obstacles that could make the moving process more challenging.
+
+The more detailed information you provide us before your moving date, the more accurate we can be in calculating the right rate for you.
+
+
             </p>
           </div>
         </div>
@@ -74,12 +105,12 @@ import { Code } from "astro:components";
           <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
             <span
               class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              Other moving/packing related costs
+              Packing Related Costs
             </span>
           </div>
           <div class="lg:col-span-2">
             <p class="text-gray-500 text-sm">
-              Ensuring your items stay safe and clean is our top priority. We'll supply you with the needed moving materials, which are:
+              To ensure your valuable items stay safe and clean during the move, we will supply moving materials such as:
             </p>
 
             <p class="text-gray-500 text-sm font-bold">
@@ -87,15 +118,15 @@ import { Code } from "astro:components";
             </p>
              
             <p class="text-gray-500 text-sm font-bold">
-              Shrink Wrap (FREE)
+              Shrink wrap (FREE but limited)
             </p>
              
             <p class="text-gray-500 text-sm font-bold">
-              Tape (FREE)
+              Tape (FREE but limited)
             </p>
              
             <p class="text-gray-500 text-sm font-bold">
-              King size mattress cover ($20.00 each)
+              King size mattress cover ($25.00 each)
             </p>
 
             <p class="text-gray-500 text-sm font-bold">

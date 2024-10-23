@@ -18,59 +18,65 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="title">
-      VANCOUVER’S PREMIER CHOICE: <br/>
+      VANCOUVER’S PREMIER CHOICE <br/>
       <span class="text-accent dark:text-orange highlight">
         FOR
       </span>
-        SMALL MOVES AND DELIVERIES.<br />
+        SMALL MOVES AND DELIVERIES<br />
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Small Short Notice Moves - Single item moves: <span class="font-semibold">Furniture, appliance, couch, mattress, fridge, tables, large size or quantity items from a store, etc.</span>.
+        Small Short Notice Moves - Single item moves: <span class="font-semibold">furniture, appliance, couch, mattress, fridge, tables, large size or quantity items from a store, etc.</span>
       </span>
     </Fragment>
   </Hero>
 
   <Content
-    title="Single Item Moving and Delivery"
-    subtitle="Wrap-it Moving is here to help you to move your entire household, or just a few items.  No move is too big or too small for our dedicated team!  Whether it is handling a single wall art piece or a couch you bought on Marketplace, picking up wood planks for your home renovation or collecting a bulk order from a supplies store, we provide the tailored service that meets your unique needs."
-    isReversed
-    items={[
-      {
-        title: '• customize a delivery plan',
-      },
-      {
-        title: '• help wrap and protect the item(s) on request',
-      },
-      {
-        title: '• dispose of wrapping material used by Wrap-it Moving',
-      },
-      {
-        title: '• Disposal of all materials used by Wrap-it Moving',
-      },
-      {
-        title: '• safely move or deliver item(s)',
-      },
-      {
-        title: '• include fuel and wrapping material cost in the rate',
-      },
-    ]}
-    image={{
-      src: '/services/furniture-2.png',
-      alt: 'Startup Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
-        You Can Count on Us
-      </h3>
-    </Fragment>
+  title="Single Item Moving and Delivery"
+  subtitle="Wrap-it Moving is here to help you to move your entire household, or just a few items. No move is too big or too small for our dedicated team! Whether it is handling a single wall art piece or a couch you bought on Marketplace, picking up wood planks for your home renovation or collecting a bulk order from a supplies store, we provide the tailored service that meets your unique needs."
+  isReversed
+  items={[
+    {
+      title: '• Customize a delivery plan',
+    },
+    {
+      title: '• Help wrap and protect the item(s) on request',
+    },
+    {
+      title: '• Dispose of wrapping material used by Wrap-it Moving',
+    },
+    {
+      title: '• Pick-up and drop-off on request',
+    },
+    {
+      title: '• Safely move or deliver item(s)',
+    },
+    {
+      title: '• Include fuel and wrapping material cost in the rate',
+    },
+  ]}
+  image={{
+    src: '/services/furniture-2.png',
+    alt: 'Startup Image',
+  }}
+>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+      You Can Count on Us
+    </h3>
+    <!-- Inserted Text Starts Here -->
+    <p class="text-lg text-gray-600 mt-4">
+      Need to move a single or few items with extra care, or don’t have the truck space to transport something huge or in bulk quantity? Wrap-it Moving will make it easy for you! Simply contact us, tell us what you need moved or delivered, and we will:
+    </p>
+    <!-- Inserted Text Ends Here -->
+  </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Content>
+
 
   <!-- <Content
     isAfterContent={true}

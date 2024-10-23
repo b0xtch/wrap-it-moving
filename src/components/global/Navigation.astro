@@ -107,19 +107,19 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
                       {text}
                     </button>
                     <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-                        {links.map(({ text: text2, href: href2 }) => (
-                          <li>
-                            <a
-                              class:list={[
-                                "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
-                                { "aw-link-active" : href2 === currentPath}
-                              ]}
-                              href={href2}
-                            >
-                              {text2}
-                            </a>
-                          </li>
-                        ))}
+                      {links.map(({ text: text2, href: href2 }) => (
+                        <li>
+                          <a
+                            class:list={[
+                              "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                              { "aw-link-active" : href2 === currentPath}
+                            ]}
+                            href={href2}
+                          >
+                            {text2}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </>
                 ) : (
@@ -137,11 +137,20 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             ))
           }
         </ul>
+      
+        <!-- Get a Quote Button with correct link -->
         <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
+          <a
+            href="/contact"
+            class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full">
+           Get a Quote
+          </a>
+      
+          <!-- Updated Call Now Button with phone number -->
           <a
             href="tel:+1-236-867-8800"
             class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full">
-            Call Now
+            Call Now at 236-867-8800
           </a>
         </div>
       </nav>

@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro'
-import sendGrid from '@sendgrid/mail';
+//import sendGrid from '@sendgrid/mail';
+import * as sendGrid from '@sendgrid/mail';
+
 
 const key = import.meta.env.SENDGRID_API_KEY;
 

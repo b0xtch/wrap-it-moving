@@ -130,11 +130,15 @@ import Footer from "../components/global/Footer.astro";
                         <option value="Tik-Tok">Tik-Tok</option> 
                         <option value="Referral">Referral</option>
                         <option value="Others">Others</option>
+                        <!-- Text Box for 'Others' input -->
+                        <input type="text" id="otherFindUs" name="other_find_us" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0; display: none;" placeholder="Please specify how you found us">
+                        
                     </select>
                 </div>
                 <div style="margin-top: 20px;">
                     <label for="photos_reference" style="display: block; font-size: 14px; margin-bottom: 5px;">PHOTOS FOR REFERENCE (optional)</label>
                     <input type="file" id="photos_reference" name="photos_reference" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" multiple>
+                    <div id="fileList" style="margin-top: 10px;"></div>
                 </div>
                 <div style="margin-top: 20px;">
                     <label for="additional_info" style="display: block; font-size: 14px; margin-bottom: 5px;">ADDITIONAL INFORMATION</label>
@@ -148,6 +152,139 @@ import Footer from "../components/global/Footer.astro";
       </div>
     </div>
     <Footer />
+    <script>
+        // JavaScript to toggle visibility of the 'Other' input field
+        const findUsSelect = document.getElementById('find_us') as HTMLSelectElement;
+        const otherFindUs = document.getElementById('otherFindUs') as HTMLInputElement;
+    
+        findUsSelect.addEventListener('change', function() {
+            if (this.value === 'Others') {
+                otherFindUs.style.display = 'block';
+            } else {
+                otherFindUs.style.display = 'none';
+            }
+        });
+    
+        // Ensure 'other_find_us' is included only if visible (user selected 'Others')
+        document.getElementById('quoteForm')!.addEventListener('submit', function(event) {
+            if (findUsSelect.value === 'Others' && !otherFindUs.value.trim()) {
+                event.preventDefault();
+                alert("Please specify how you found us if 'Others' is selected.");
+            }
+        });
+    </script>
+    <script>
+        const fileInput = document.getElementById('photos_reference') as HTMLInputElement;
+        const fileListContainer = document.getElementById('fileList') as HTMLElement;
+        
+        fileInput.addEventListener('change', function() {
+            // Clear the previous list of files
+            fileListContainer.innerHTML = '';
+    
+            // List selected files
+            Array.from(fileInput.files!).forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.style.display = 'flex';
+                fileItem.style.justifyContent = 'space-between';
+                fileItem.style.alignItems = 'center';
+                fileItem.style.marginTop = '5px';
+    
+                // Display file name
+                const fileName = document.createElement('span');
+                fileName.textContent = file.name;
+    
+                // Create a delete button
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'X';
+                deleteButton.style.marginLeft = '10px';
+                deleteButton.style.backgroundColor = '#FF5034';
+                deleteButton.style.color = 'white';
+                deleteButton.style.border = 'none';
+                deleteButton.style.borderRadius = '5px';
+                deleteButton.style.cursor = 'pointer';
+                deleteButton.style.padding = '0 8px';
+    
+                // Remove file functionality
+                deleteButton.addEventListener('click', function() {
+                    const dataTransfer = new DataTransfer();
+                    Array.from(fileInput.files!).forEach((f, idx) => {
+                        if (index !== idx) {
+                            dataTransfer.items.add(f); // Keep only the files that are not being removed
+                        }
+                    });
+                    fileInput.files = dataTransfer.files;
+    
+                    // Remove the file entry from the list display
+                    fileItem.remove();
+                });
+    
+                // Add file name and delete button to the item
+                fileItem.appendChild(fileName);
+                fileItem.appendChild(deleteButton);
+    
+                // Add the item to the file list container
+                fileListContainer.appendChild(fileItem);
+            });
+    
+            // Limit to 10 files
+            if (fileInput.files!.length > 10) {
+                alert("You can only upload up to 10 files.");
+                const dataTransfer = new DataTransfer();
+                Array.from(fileInput.files!).slice(0, 10).forEach(file => dataTransfer.items.add(file));
+                fileInput.files = dataTransfer.files;
+    
+                // Re-render the file list
+                fileListContainer.innerHTML = '';
+                Array.from(fileInput.files!).forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.style.display = 'flex';
+                    fileItem.style.justifyContent = 'space-between';
+                    fileItem.style.alignItems = 'center';
+                    fileItem.style.marginTop = '5px';
+    
+                    const fileName = document.createElement('span');
+                    fileName.textContent = file.name;
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'X';
+                    deleteButton.style.marginLeft = '10px';
+                    deleteButton.style.backgroundColor = '#FF5034';
+                    deleteButton.style.color = 'white';
+                    deleteButton.style.border = 'none';
+                    deleteButton.style.borderRadius = '5px';
+                    deleteButton.style.cursor = 'pointer';
+                    deleteButton.style.padding = '0 8px';
+    
+                    deleteButton.addEventListener('click', function() {
+                        const dt = new DataTransfer();
+                        Array.from(fileInput.files!).forEach((f, idx) => {
+                            if (index !== idx) {
+                                dt.items.add(f);
+                            }
+                        });
+                        fileInput.files = dt.files;
+                        fileItem.remove();
+                    });
+    
+                    fileItem.appendChild(fileName);
+                    fileItem.appendChild(deleteButton);
+                    fileListContainer.appendChild(fileItem);
+                });
+            }
+        });
+    </script>
+    <script>
+        // Listen for the form submission
+        const quoteForm = document.getElementById('quoteForm');
+        
+        quoteForm.addEventListener('submit', function(event) {
+            // Optionally prevent the form from submitting (for demonstration purposes)
+            // event.preventDefault();
+            
+            // Display the thank-you message
+            alert("Thank you for submitting your form. We will get back to you as soon as we can, thank you and have a nice day!");
+        });
+    </script>
   </BaseLayout>
   
   

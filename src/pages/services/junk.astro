@@ -18,26 +18,36 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="title">
-       VANCOUVER’S PREMIER CHOICE: <br/>
+       VANCOUVER’S PREMIER CHOICE <br/>
       <span class="text-accent dark:text-orange highlight">
         FOR
       </span>
-        JUNK REMOVAL.<br />
+        JUNK REMOVAL<br />
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        We go beyond just moving homes.  Let us help you make your junk disappear!
+      <span class="hidden sm:inline text-lg text-gray-600">
+        We go beyond just moving homes. Let us help you make your junk disappear!
       </span>
     </Fragment>
   </Hero>
 
+  <!-- Adjusted Why Junk Removal Section -->
+  <Content
+    title="Why Junk Removal?"
+    subtitle={`Junk removal is important not only to get rid of unwanted items, it also helps create more space, making your environment more organized and clean, and your area more functional, safer, and simply nicer to look at! This can be especially beneficial when you are downsizing, renovating, or simply decluttering.
+
+Using a junk removal service will save you time and headache. Wrap-it Moving is experienced in moving items of various sizes and types, and has knowledge in local regulations and environmentally friendly disposal methods. Let Wrap-it Moving be your hassle-free solution to clearing out spaces. Contact us today!`}
+    class="text-left max-w-3xl mx-auto my-8 text-gray-700"
+/>
+
+  <!-- Adjusted Common Items Section -->
   <Content
     isAfterContent={true}
     items={[
       {
         title: 'Items:',
-        description: "Furnitures, mattresses, appliances, computers, TVs and other electronics, gym equipments, tools, random household junk, toys, hot tubs, boxes, pianos, bicycles, books, etc.",
+        description: "Furniture, mattresses, appliances, computers, TVs, and other electronics, gym equipment, tools, random household junk, toys, hot tubs, boxes, pianos, bicycles, books, etc.",
       },
     ]}
     image={{
@@ -46,7 +56,7 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+      <h3 class="text-2xl font-semibold tracking-tight dark:text-blue sm:text-3xl mb-4">
         Common Items We Take:
       </h3>
     </Fragment>
@@ -56,6 +66,7 @@ import Content from "../../components/services/Content.astro"
     </Fragment>
   </Content>
 
+  <!-- Adjusted Non-Acceptable Items Section -->
   <Content
     isReversed
     isAfterContent={true}
@@ -71,7 +82,7 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+      <h3 class="text-2xl font-semibold tracking-tight dark:text-blue sm:text-3xl mb-4">
         Common Items We Don’t Take and Junk Removal Companies Won’t Accept:
       </h3>
     </Fragment>
@@ -81,33 +92,34 @@ import Content from "../../components/services/Content.astro"
     </Fragment>
   </Content>
 
+  <!-- Adjusted Service Cost Section -->
   <Content
     title="Junk Removal Service Cost"
-    subtitle="The cost of junk removal can vary depending on the item, material and volume.  We can haul your junk away at a flat-rate which includes the cost charged by the junk removal company and expenses on getting the job done.  Prices can range from $129 for small piles of junk to a starting rate of $799 for full loads.  Extra charges may apply to special items or unusual quantity such as pianos, tires, and excessive quantity of books. Call or email us for details.",
+    subtitle="The cost of junk removal can vary depending on the item, material, and volume. We can haul your junk away at a flat-rate which includes the cost charged by the junk removal company and expenses on getting the job done. Prices can range from $129 for small piles of junk to a starting rate of $799 for full loads. Extra charges may apply to special items or unusual quantities such as pianos, tires, and excessive books. Call or email us for details."
     items={[
       {
-        title: '• Mattresses Removal'
+        title: '• Mattresses Removal',
       },
       {
-        title: '• Fridge Removal'
+        title: '• Fridge Removal',
       },
       {
-        title: '• Dishwashers, Washer / Dryer Removals'
+        title: '• Dishwashers, Washer / Dryer Removals',
       },
       {
-        title: '• Hot Tubs and Bathtubs Removal'
+        title: '• Hot Tubs and Bathtubs Removal',
       },
       {
-        title: '• Piano Removal'
+        title: '• Piano Removal',
       },
       {
-        title: '• Construction Sites and Demolition'
+        title: '• Construction Sites, Demolition and Waste Removal',
       },
       {
-        title: '• Sofas, Bed Frames, Couches Removal'
+        title: '• Sofas, Bed Frames, Couches Removal',
       },
       {
-        title: '• Dining Sets, Chairs, and Other Furniture Removal'
+        title: '• Dining Sets, Chairs, and Other Furniture Removal',
       },
     ]}
     image={{
@@ -116,7 +128,7 @@ import Content from "../../components/services/Content.astro"
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-blue sm:text-3xl mb-2">
+      <h3 class="text-2xl font-semibold tracking-tight dark:text-blue sm:text-3xl mb-4">
         Our services include:
       </h3>
     </Fragment>
@@ -126,5 +138,6 @@ import Content from "../../components/services/Content.astro"
     </Fragment>
   </Content>
 
-  <Footer/>
+  <Footer />
 </BaseLayout>
+
