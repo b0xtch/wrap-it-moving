@@ -46,23 +46,23 @@ import { Code } from "astro:components";
               Travel Time
             </span>
           </div>
-          <div class="space-y-4 lg:col-span-2">
+          <section class="space-y-4 lg:col-span-2" id="travel-zone-map" >
             <p class="text-gray-500 text-sm">
-              Travel time is driving time from our company location to the pick-up address, and from the drop-off address back to our company.  Please see our travel time zone map below for the rates.
+                Travel time is driving time from our company location to the pick-up address, and from the drop-off address back to our company. Please see our travel time zone map below for the rates.
             </p>
-            <!-- Add Image Here -->
-    <img src="/travelzone.png" alt="Travel Zone Map" class="w-full h-auto my-4 rounded-lg">
-    <!-- Add Zone Descriptions Here -->
-    <p class="text-gray-500 text-sm">
-      <strong>Zone 1 (blue):</strong> 1 hour travel time for Vancouver, Burnaby, Richmond, and Delta
-    </p>
-    <p class="text-gray-500 text-sm">
-      <strong>Zone 2 (green):</strong> 1.5 hour travel time for West Vancouver, North Vancouver, Port Moody, Coquitlam, New Westminster, Port Coquitlam, Pitt Meadows, Maple Ridge, South Westminster, Surrey, and Langley
-    </p>
-    <p class="text-gray-500 text-sm">
-      <strong>Zone 3 (orange):</strong> 2 hour travel time for Mission
-    </p>
-          </div>
+            <img src="/travelzone.png" alt="Travel Zone Map" class="w-full h-auto my-4 rounded-lg">
+            <p class="text-gray-500 text-sm">
+                <strong>Zone 1 (blue):</strong> 1 hour travel time for Vancouver, Burnaby, Richmond, and Delta
+            </p>
+            <p class="text-gray-500 text-sm">
+                <strong>Zone 2 (green):</strong> 1.5 hour travel time for West Vancouver, North Vancouver, Port Moody, Coquitlam, New Westminster, Port Coquitlam, Pitt Meadows, Maple Ridge, South Westminster, Surrey, and Langley
+            </p>
+            <p class="text-gray-500 text-sm">
+                <strong>Zone 3 (orange):</strong> 2 hour travel time for Mission
+            </p>
+        </section>
+        
+          
         </div>
         <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
           <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
@@ -144,3 +144,26 @@ The more detailed information you provide us before your moving date, the more a
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                // Scroll to the element with an offset for the header
+                const headerOffset = 100; // Adjust this offset as needed
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
+</script>

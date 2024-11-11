@@ -13,7 +13,6 @@
     /* Square quotes */ "zero" 1,
     /* Slashed zero */ "tnum" 1,
     /* Tabular numbers */ "cv03",
-    /* Open six */ "cv04" 1,
     /* Open nine */ "cv01" 1,
     /* Alternate one */ "cv09",
     /* Flat-top three */ "cv02" 1; /* Open 4 */
@@ -25,6 +24,29 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* Adjust font size for readability */
+  body {
+      font-size: 14px;
+  }
+
+  /* Adjust padding/margin for elements on mobile */
+  .container {
+      padding: 10px;
+      margin: 0;
+  }
+
+  /* Example of making images responsive */
+  img {
+      width: 100%;
+      height: auto;
+  }
+
+  /* Adjust any specific classes causing layout issues on mobile */
+  .some-class {
+      /* Modify layout properties for better mobile rendering */
+  }
+}
 /* Custom hover class for dropdown */
 .dropdown:hover > .dropdown-menu {
   display: block;
