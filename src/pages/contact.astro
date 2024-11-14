@@ -25,188 +25,418 @@ import Footer from "../components/global/Footer.astro";
 
 <BaseLayout>
     <Navigation />
-    <div class="w-full mx-auto max-w-7xl items-center py-12 pb-12" id="contact"> 
-      <div class="bg-gray-100 p-8 rounded-3xl">
-          <div class="form-container mx-auto bg-white p-8 rounded-3xl" style="max-width: 7xl; border: 1px solid #cbd5e0;">
-            <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 10px;">Get A Free Quote Now</h3>
-            <form action="/api/send" method="post">
-                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                    <div style="flex-basis: 48%;">
-                        <label for="moving_from" style="display: block; font-size: 14px; margin-bottom: 5px;">MOVING FROM *</label>
-                        <input type="text" id="moving_from" name="moving_from" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" placeholder="Enter a location including city" required>
-                        <select id="moving_from_type" name="moving_from_type" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;">
-                            <option value="House">House</option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Townhouse">Townhouse</option>
-                            <option value="Studio">Studio</option>
-                            <option value="Office">Office</option>
-                            <option value="Delivery Pick-up">Delivery Pick-up</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <div style="margin-top: 10px;">
-                            <label style="font-size: 14px;">Elevator available:</label>
-                            <input type="radio" id="elevator_from_yes" name="elevator_from" value="Yes"><label for="elevator_from_yes" style="margin-right: 10px;">Yes</label>
-                            <input type="radio" id="elevator_from_no" name="elevator_from" value="No"><label for="elevator_from_no">No</label>
+    <div class="w-full mx-auto max-w-7xl items-center py-12 pb-12" id="contact">
+        <div class="bg-gray-100 p-8 rounded-3xl">
+            <div
+                class="form-container mx-auto bg-white p-8 rounded-3xl"
+                style="max-width: 7xl; border: 1px solid #cbd5e0;"
+            >
+                <h3
+                    style="text-align: center; font-size: 1.6rem; margin-bottom: 10px;"
+                >
+                    Get A Free Quote Now
+                </h3>
+                <form
+                    id="quoteForm"
+                    action="/api/send"
+                    method="post"
+                    enctype="multipart/form-data"
+                >
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 20px;"
+                    >
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="move_date"
+                                    style="display: block; font-size: 18px; margin-top: 10px; margin-bottom: 5px;"
+                                    >PREFERRED MOVE DATE</label
+                                ></strong
+                            >
+                            <!-- Single date input for both selection and display -->
+                            <input
+                                type="date"
+                                id="move_date"
+                                name="move_date"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            />
                         </div>
-                        <select id="bedrooms_from" name="bedrooms_from" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;">
-                            <option value="">Bedroom(s)</option>
-                            <option value="1">1 Bedroom</option>
-                            <option value="2">2 Bedrooms</option>
-                            <option value="3">3 Bedrooms</option>
-                            <option value="4">4 Bedrooms</option>
-                            <option value="5">5 Bedrooms</option>
-                        </select>
                     </div>
-                    <div style="flex-basis: 48%;">
-                        <label for="moving_to" style="display: block; font-size: 14px; margin-bottom: 5px;">MOVING TO *</label>
-                        <input type="text" id="moving_to" name="moving_to" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" placeholder="Enter a location including city" required>
-                        <select id="moving_to_type" name="moving_to_type" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;">
-                            <option value="House">House</option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Townhouse">Townhouse</option>
-                            <option value="Studio">Studio</option>
-                            <option value="Office">Office</option>
-                            <option value="Delivery Drop-off">Delivery Drop-off</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <div style="margin-top: 10px;">
-                            <label style="font-size: 14px;">Elevator available:</label>
-                            <input type="radio" id="elevator_to_yes" name="elevator_to" value="Yes"><label for="elevator_to_yes" style="margin-right: 10px;">Yes</label>
-                            <input type="radio" id="elevator_to_no" name="elevator_to" value="No"><label for="elevator_to_no">No</label>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 20px;"
+                    >
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="moving_from"
+                                    style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                    >MOVING FROM *</label
+                                ></strong
+                            >
+                            <input
+                                type="text"
+                                id="moving_from"
+                                name="moving_from"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                                placeholder="Enter a location including city"
+                                required
+                            />
+                            <select
+                                id="moving_from_type"
+                                name="moving_from_type"
+                                style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            >
+                                <option value="House">House</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Office">Office</option>
+                                <option value="Delivery Pick-up"
+                                    >Delivery Pick-up</option
+                                >
+                                <option value="Others">Others</option>
+                            </select>
+                            <div style="margin-top: 10px;">
+                                <strong
+                                    ><label style="font-size: 18px;"
+                                        >Elevator available:</label
+                                    ></strong
+                                >
+                                <input
+                                    type="radio"
+                                    id="elevator_from_yes"
+                                    name="elevator_from"
+                                    value="Yes"
+                                /><label
+                                    for="elevator_from_yes"
+                                    style="margin-right: 10px;">Yes</label
+                                >
+                                <input
+                                    type="radio"
+                                    id="elevator_from_no"
+                                    name="elevator_from"
+                                    value="No"
+                                /><label for="elevator_from_no">No</label>
+                            </div>
+                            <select
+                                id="bedrooms_from"
+                                name="bedrooms_from"
+                                style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            >
+                                <option value="">Bedroom(s)</option>
+                                <option value="1">1 Bedroom</option>
+                                <option value="2">2 Bedrooms</option>
+                                <option value="3">3 Bedrooms</option>
+                                <option value="4">4 Bedrooms</option>
+                                <option value="5">5 Bedrooms</option>
+                            </select>
                         </div>
-                        <select id="bedrooms_to" name="bedrooms_to" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;">
-                            <option value="">Bedroom(s)</option>
-                            <option value="1">1 Bedroom</option>
-                            <option value="2">2 Bedrooms</option>
-                            <option value="3">3 Bedrooms</option>
-                            <option value="4">4 Bedrooms</option>
-                            <option value="5">5 Bedrooms</option>
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="moving_to"
+                                    style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                    >MOVING TO *</label
+                                ></strong
+                            >
+                            <input
+                                type="text"
+                                id="moving_to"
+                                name="moving_to"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                                placeholder="Enter a location including city"
+                                required
+                            />
+                            <select
+                                id="moving_to_type"
+                                name="moving_to_type"
+                                style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            >
+                                <option value="House">House</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Office">Office</option>
+                                <option value="Delivery Drop-off"
+                                    >Delivery Drop-off</option
+                                >
+                                <option value="Others">Others</option>
+                            </select>
+                            <div style="margin-top: 10px;">
+                                <strong
+                                    ><label style="font-size: 18px;"
+                                        >Elevator available:</label
+                                    ></strong
+                                >
+                                <input
+                                    type="radio"
+                                    id="elevator_to_yes"
+                                    name="elevator_to"
+                                    value="Yes"
+                                /><label
+                                    for="elevator_to_yes"
+                                    style="margin-right: 10px;">Yes</label
+                                >
+                                <input
+                                    type="radio"
+                                    id="elevator_to_no"
+                                    name="elevator_to"
+                                    value="No"
+                                /><label for="elevator_to_no">No</label>
+                            </div>
+                            <select
+                                id="bedrooms_to"
+                                name="bedrooms_to"
+                                style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            >
+                                <option value="">Bedroom(s)</option>
+                                <option value="1">1 Bedroom</option>
+                                <option value="2">2 Bedrooms</option>
+                                <option value="3">3 Bedrooms</option>
+                                <option value="4">4 Bedrooms</option>
+                                <option value="5">5 Bedrooms</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 20px;"
+                    >
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="name"
+                                    style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                    >NAME *</label
+                                ></strong
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                                required
+                            />
+                        </div>
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="email"
+                                    style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                    >EMAIL *</label
+                                ></strong
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 20px;"
+                    >
+                        <div style="flex-basis: 48%;">
+                            <strong
+                                ><label
+                                    for="phone"
+                                    style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                    >PHONE *</label
+                                ></strong
+                            >
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <strong
+                            ><label
+                                for="additional_services"
+                                style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                >ADDITIONAL SERVICE(S)</label
+                            ></strong
+                        >
+                        <div>
+                            <input
+                                type="radio"
+                                id="junk_removal"
+                                name="additional_services"
+                                value="Junk Removal"
+                            />
+                            <label for="junk_removal" style="font-size: 18px;"
+                                >Junk Removal</label
+                            >
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                id="single_item_move"
+                                name="additional_services"
+                                value="Single Item/Furniture Move"
+                            />
+                            <label
+                                for="single_item_move"
+                                style="font-size: 18px;"
+                                >Single Item/Furniture Move</label
+                            >
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                id="long_distance_move"
+                                name="additional_services"
+                                value="Long Distance"
+                            />
+                            <label
+                                for="long_distance_move"
+                                style="font-size: 18px;">Long Distance</label
+                            >
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <strong
+                            ><label
+                                for="find_us"
+                                style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                >HOW DID YOU FIND US?</label
+                            ></strong
+                        >
+                        <select
+                            id="find_us"
+                            name="find_us"
+                            style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                        >
+                            <option value="Google">Google</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Tik-Tok">Tik-Tok</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Others">Twitter</option>
+                            <option value="Others">Others</option>
+                            <!-- Text Box for 'Others' input -->
+                            <input
+                                type="text"
+                                id="otherFindUs"
+                                name="other_find_us"
+                                style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0; display: none;"
+                                placeholder="Please specify how you found us"
+                            />
                         </select>
                     </div>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                  <div style="flex-basis: 48%;">
-                      <label for="name" style="display: block; font-size: 14px; margin-bottom: 5px;">NAME *</label>
-                      <input type="text" id="name" name="name" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
-                  </div>
-                  <div style="flex-basis: 48%;">
-                      <label for="email" style="display: block; font-size: 14px; margin-bottom: 5px;">EMAIL *</label>
-                      <input type="email" id="email" name="email" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-                    <div style="flex-basis: 48%;">
-                        <label for="phone" style="display: block; font-size: 14px; margin-bottom: 5px;">PHONE *</label>
-                        <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" required>
+                    <div style="margin-top: 20px;">
+                        <strong
+                            ><label
+                                for="photos_reference"
+                                style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                >PHOTOS FOR REFERENCE (optional)</label
+                            ></strong
+                        >
+                        <input
+                            type="file"
+                            id="photos_reference"
+                            name="photos_reference"
+                            style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                            multiple
+                        />
+                        <div id="fileList" style="margin-top: 10px;"></div>
                     </div>
-                    <div style="flex-basis: 48%;">
-                        <label for="move_date" style="display: block; font-size: 14px; margin-top: 10px; margin-bottom: 5px;">PREFERRED MOVE DATE</label>
-                        <input type="date" id="move_date" name="move_date" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;">
+                    <div style="margin-top: 20px;">
+                        <strong
+                            ><label
+                                for="additional_info"
+                                style="display: block; font-size: 18px; margin-bottom: 5px;"
+                                >ADDITIONAL INFORMATION</label
+                            ></strong
+                        >
+                        <textarea
+                            id="additional_info"
+                            name="additional_info"
+                            style="width: 100%; height: 170px; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"
+                        ></textarea>
                     </div>
-                  </div>
-                <div style="margin-top: 20px;">
-                    <label for="additional_services" style="display: block; font-size: 14px; margin-bottom: 5px;">ADDITIONAL SERVICE(S)</label>
-                    <div>
-                        <input type="radio" id="junk_removal" name="additional_services" value="Junk Removal">
-                        <label for="junk_removal" style="font-size: 14px;">Junk Removal</label>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <input
+                            type="submit"
+                            value="Submit for Free Quote"
+                            style="background-color: #FF5034; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;"
+                        />
                     </div>
-                    <div>
-                        <input type="radio" id="single_item_move" name="additional_services" value="Single Item/Furniture Move">
-                        <label for="single_item_move" style="font-size: 14px;">Single Item/Furniture Move</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="long_distance_move" name="additional_services" value="Long Distance">
-                        <label for="long_distance_move" style="font-size: 14px;">Long Distance</label>
-                    </div>
-                </div>
-                <div style="margin-top: 20px;">
-                    <label for="find_us" style="display: block; font-size: 14px; margin-bottom: 5px;">HOW DID YOU FIND US?</label>
-                    <select id="find_us" name="find_us" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;">
-                        <option value="Google">Google</option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Instagram">Instagram</option>
-                        <option value="Tik-Tok">Tik-Tok</option> 
-                        <option value="Referral">Referral</option>
-                        <option value="Others">Twitter</option>
-                        <option value="Others">Others</option>
-                        <!-- Text Box for 'Others' input -->
-                        <input type="text" id="otherFindUs" name="other_find_us" style="width: 100%; padding: 0.75em; margin-top: 10px; border-radius: 5px; border: 1px solid #cbd5e0; display: none;" placeholder="Please specify how you found us">
-                        
-                    </select>
-                </div>
-                <div style="margin-top: 20px;">
-                    <label for="photos_reference" style="display: block; font-size: 14px; margin-bottom: 5px;">PHOTOS FOR REFERENCE (optional)</label>
-                    <input type="file" id="photos_reference" name="photos_reference" style="width: 100%; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;" multiple>
-                    <div id="fileList" style="margin-top: 10px;"></div>
-                </div>
-                <div style="margin-top: 20px;">
-                    <label for="additional_info" style="display: block; font-size: 14px; margin-bottom: 5px;">ADDITIONAL INFORMATION</label>
-                    <textarea id="additional_info" name="additional_info" style="width: 100%; height: 170px; padding: 0.75em; border-radius: 5px; border: 1px solid #cbd5e0;"></textarea>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <input type="submit" value="Submit for Free Quote" style="background-color: #FF5034; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
     <Footer />
     <script>
-        // JavaScript to toggle visibility of the 'Other' input field
-        const findUsSelect = document.getElementById('find_us') as HTMLSelectElement;
-        const otherFindUs = document.getElementById('otherFindUs') as HTMLInputElement;
-    
-        findUsSelect.addEventListener('change', function() {
-            if (this.value === 'Others') {
-                otherFindUs.style.display = 'block';
+        const findUsSelect = document.getElementById("find_us");
+        const otherFindUs = document.getElementById("otherFindUs");
+        const quoteForm = document.getElementById("quoteForm");
+
+        findUsSelect.addEventListener("change", function () {
+            if (this.value === "Others") {
+                otherFindUs.style.display = "block";
+                otherFindUs.setAttribute("name", "other_find_us"); // Add 'name' attribute when visible
             } else {
-                otherFindUs.style.display = 'none';
+                otherFindUs.style.display = "none";
+                otherFindUs.removeAttribute("name"); // Remove 'name' attribute when hidden
             }
         });
-    
-        // Ensure 'other_find_us' is included only if visible (user selected 'Others')
-        document.getElementById('quoteForm')!.addEventListener('submit', function(event) {
-            if (findUsSelect.value === 'Others' && !otherFindUs.value.trim()) {
+
+        // Optional validation for the "Other" field when "Others" is selected
+        quoteForm.addEventListener("submit", function (event) {
+            if (findUsSelect.value === "Others" && !otherFindUs.value.trim()) {
                 event.preventDefault();
-                alert("Please specify how you found us if 'Others' is selected.");
+                alert(
+                    "Please specify how you found us if 'Others' is selected.",
+                );
             }
         });
     </script>
+
     <script>
-        const fileInput = document.getElementById('photos_reference') as HTMLInputElement;
-        const fileListContainer = document.getElementById('fileList') as HTMLElement;
-        
-        fileInput.addEventListener('change', function() {
+        const fileInput = document.getElementById(
+            "photos_reference",
+        ) as HTMLInputElement;
+        const fileListContainer = document.getElementById(
+            "fileList",
+        ) as HTMLElement;
+
+        fileInput.addEventListener("change", function () {
             // Clear the previous list of files
-            fileListContainer.innerHTML = '';
-    
+            fileListContainer.innerHTML = "";
+
             // List selected files
             Array.from(fileInput.files!).forEach((file, index) => {
-                const fileItem = document.createElement('div');
-                fileItem.style.display = 'flex';
-                fileItem.style.justifyContent = 'space-between';
-                fileItem.style.alignItems = 'center';
-                fileItem.style.marginTop = '5px';
-    
+                const fileItem = document.createElement("div");
+                fileItem.style.display = "flex";
+                fileItem.style.justifyContent = "space-between";
+                fileItem.style.alignItems = "center";
+                fileItem.style.marginTop = "5px";
+
                 // Display file name
-                const fileName = document.createElement('span');
+                const fileName = document.createElement("span");
                 fileName.textContent = file.name;
-    
+
                 // Create a delete button
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'X';
-                deleteButton.style.marginLeft = '10px';
-                deleteButton.style.backgroundColor = '#FF5034';
-                deleteButton.style.color = 'white';
-                deleteButton.style.border = 'none';
-                deleteButton.style.borderRadius = '5px';
-                deleteButton.style.cursor = 'pointer';
-                deleteButton.style.padding = '0 8px';
-    
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "X";
+                deleteButton.style.marginLeft = "10px";
+                deleteButton.style.backgroundColor = "#FF5034";
+                deleteButton.style.color = "white";
+                deleteButton.style.border = "none";
+                deleteButton.style.borderRadius = "5px";
+                deleteButton.style.cursor = "pointer";
+                deleteButton.style.padding = "0 8px";
+
                 // Remove file functionality
-                deleteButton.addEventListener('click', function() {
+                deleteButton.addEventListener("click", function () {
                     const dataTransfer = new DataTransfer();
                     Array.from(fileInput.files!).forEach((f, idx) => {
                         if (index !== idx) {
@@ -214,49 +444,51 @@ import Footer from "../components/global/Footer.astro";
                         }
                     });
                     fileInput.files = dataTransfer.files;
-    
+
                     // Remove the file entry from the list display
                     fileItem.remove();
                 });
-    
+
                 // Add file name and delete button to the item
                 fileItem.appendChild(fileName);
                 fileItem.appendChild(deleteButton);
-    
+
                 // Add the item to the file list container
                 fileListContainer.appendChild(fileItem);
             });
-    
+
             // Limit to 10 files
             if (fileInput.files!.length > 10) {
                 alert("You can only upload up to 10 files.");
                 const dataTransfer = new DataTransfer();
-                Array.from(fileInput.files!).slice(0, 10).forEach(file => dataTransfer.items.add(file));
+                Array.from(fileInput.files!)
+                    .slice(0, 10)
+                    .forEach((file) => dataTransfer.items.add(file));
                 fileInput.files = dataTransfer.files;
-    
+
                 // Re-render the file list
-                fileListContainer.innerHTML = '';
+                fileListContainer.innerHTML = "";
                 Array.from(fileInput.files!).forEach((file, index) => {
-                    const fileItem = document.createElement('div');
-                    fileItem.style.display = 'flex';
-                    fileItem.style.justifyContent = 'space-between';
-                    fileItem.style.alignItems = 'center';
-                    fileItem.style.marginTop = '5px';
-    
-                    const fileName = document.createElement('span');
+                    const fileItem = document.createElement("div");
+                    fileItem.style.display = "flex";
+                    fileItem.style.justifyContent = "space-between";
+                    fileItem.style.alignItems = "center";
+                    fileItem.style.marginTop = "5px";
+
+                    const fileName = document.createElement("span");
                     fileName.textContent = file.name;
-                    
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'X';
-                    deleteButton.style.marginLeft = '10px';
-                    deleteButton.style.backgroundColor = '#FF5034';
-                    deleteButton.style.color = 'white';
-                    deleteButton.style.border = 'none';
-                    deleteButton.style.borderRadius = '5px';
-                    deleteButton.style.cursor = 'pointer';
-                    deleteButton.style.padding = '0 8px';
-    
-                    deleteButton.addEventListener('click', function() {
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "X";
+                    deleteButton.style.marginLeft = "10px";
+                    deleteButton.style.backgroundColor = "#FF5034";
+                    deleteButton.style.color = "white";
+                    deleteButton.style.border = "none";
+                    deleteButton.style.borderRadius = "5px";
+                    deleteButton.style.cursor = "pointer";
+                    deleteButton.style.padding = "0 8px";
+
+                    deleteButton.addEventListener("click", function () {
                         const dt = new DataTransfer();
                         Array.from(fileInput.files!).forEach((f, idx) => {
                             if (index !== idx) {
@@ -266,7 +498,7 @@ import Footer from "../components/global/Footer.astro";
                         fileInput.files = dt.files;
                         fileItem.remove();
                     });
-    
+
                     fileItem.appendChild(fileName);
                     fileItem.appendChild(deleteButton);
                     fileListContainer.appendChild(fileItem);
@@ -275,20 +507,44 @@ import Footer from "../components/global/Footer.astro";
         });
     </script>
     <script>
-        // Listen for the form submission
-        const quoteForm = document.getElementById('quoteForm');
-        
-        quoteForm.addEventListener('submit', function(event) {
-            // Optionally prevent the form from submitting (for demonstration purposes)
-            // event.preventDefault();
-            
-            // Display the thank-you message
-            alert("Thank you for submitting your form. We will get back to you as soon as we can, thank you and have a nice day!");
+        const moveDateInput = document.getElementById(
+            "move_date",
+        ) as HTMLInputElement;
+
+        // Store the selected date in the desired format for display
+        moveDateInput.addEventListener("change", function () {
+            const date = new Date(this.value);
+            if (!isNaN(date.getTime())) {
+                const options = {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                };
+                this.setAttribute(
+                    "data-formatted-date",
+                    date.toLocaleDateString("en-US", options),
+                );
+            }
+        });
+
+        // Show the formatted date when the input loses focus
+        moveDateInput.addEventListener("blur", function () {
+            const formattedDate = this.getAttribute("data-formatted-date");
+            if (formattedDate) {
+                this.type = "text";
+                this.value = formattedDate;
+            }
+        });
+
+        // Switch back to date format when the input is focused
+        moveDateInput.addEventListener("focus", function () {
+            this.type = "date";
+            const originalValue = this.getAttribute("data-formatted-date")
+                ? new Date(this.getAttribute("data-formatted-date"))
+                      .toISOString()
+                      .split("T")[0]
+                : "";
+            this.value = originalValue;
         });
     </script>
-  </BaseLayout>
-  
-  
-  
-  
-  
+</BaseLayout>

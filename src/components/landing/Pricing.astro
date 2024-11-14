@@ -15,7 +15,7 @@
         <h3 class="mt-5 text-lg text-black font-display">One Mover</h3>
         <p class="text-gray-500 text-sm">
           Ideal for nearby relocations plus 
-          <span id="travel-time-link" class="text-blue-500 underline hover:text-blue-700" style="cursor:pointer;">travel time</span>.
+          <a href="/pricing#travel-zone-map" class="text-blue-500 underline hover:text-blue-700">travel time</a>
 
         </p>
         
@@ -31,7 +31,16 @@
         </ul>
         <a class="inline-flex items-center justify-center h-12 mt-8 rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto px-6 py-3 text-center text-white w-full" href="/pricing">Get started</a>
       </section>
-
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const travelTimeLink = document.getElementById('travel-time-link');
+          const travelZoneMap = document.getElementById('travel-zone-map');
+      
+          travelTimeLink.addEventListener('click', function() {
+            travelZoneMap.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      </script>
       <!-- Pricing Tier 2: Long-Distance Move -->
       <section class="flex flex-col px-6 rounded-3xl lg:py-8">
         <h3 class="mt-5 text-lg text-black font-display">Two Movers</h3>

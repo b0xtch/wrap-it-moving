@@ -1,23 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* CSS */
 :root {
   font-family: Inter, sans-serif;
   font-feature-settings:
     "liga" 1,
     "calt" 1,
-    /* Contextual Alternates */ "dlig" 1,
-    /* Discretionary Ligatures */ "ss07" 1,
-    /* fSquare punctuation */ "ss08" 1,
-    /* Square quotes */ "zero" 1,
-    /* Slashed zero */ "tnum" 1,
-    /* Tabular numbers */ "cv03",
-    /* Open nine */ "cv01" 1,
-    /* Alternate one */ "cv09",
-    /* Flat-top three */ "cv02" 1; /* Open 4 */
+    /* Contextual Alternates */
+    "dlig" 1,
+    /* Discretionary Ligatures */
+    "ss07" 1,
+    /* fSquare punctuation */
+    "ss08" 1,
+    /* Square quotes */
+    "zero" 1,
+    /* Slashed zero */
+    "tnum" 1,
+    /* Tabular numbers */
+    "cv03",
+    /* Open nine */
+    "cv01" 1,
+    /* Alternate one */
+    "cv09",
+    /* Flat-top three */
+    "cv02" 1;
+  /* Open 4 */
 }
+
 @supports (font-variation-settings: normal) {
+
   /* Use variable font if supported */
   :root {
     font-family: InterVariable, sans-serif;
@@ -25,29 +38,87 @@
 }
 
 @media (max-width: 768px) {
-  /* Adjust font size for readability */
-  body {
-      font-size: 14px;
+
+  /* Ensures the navigation links are displayed in a row */
+  .nav-links {
+    display: flex;
+    /* Aligns items horizontally */
+    flex-direction: row;
+    justify-content: center;
+    /* Centers the items */
+    gap: 1rem;
+    /* Adds space between the links */
+    width: 100%;
   }
 
-  /* Adjust padding/margin for elements on mobile */
-  .container {
-      padding: 10px;
-      margin: 0;
+  .nav-links li {
+    list-style: none;
+    /* Removes bullet points */
   }
 
-  /* Example of making images responsive */
-  img {
-      width: 100%;
-      height: auto;
+  .nav-links a {
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    /* Removes underline */
+    color: black;
   }
 
-  /* Adjust any specific classes causing layout issues on mobile */
-  .some-class {
-      /* Modify layout properties for better mobile rendering */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    /* Place the dropdown below the button */
+    left: 0;
+    width: 100%;
+    /* Full width on mobile */
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow */
+    background-color: white;
+    opacity: 0;
+    /* Hidden by default */
+    visibility: hidden;
+    /* Hidden by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Smooth transition */
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 16px;
+    /* Increase padding for easier tapping */
+    font-size: 1rem;
+    border-bottom: 1px solid #eaeaea;
+    /* Adds separation between items */
+  }
+
+  .dropdown-menu li a:last-child {
+    border-bottom: none;
+    /* Remove border from the last item */
+  }
+
+  .inline-flex a {
+    font-size: 0.75rem;
+    /* Further reduce font size */
+    padding: 4px 8px;
+    /* Further adjust padding */
+    width: auto;
+    /* Allow button to resize based on text */
+    white-space: nowrap;
+    /* Prevent text wrapping to a new line */
   }
 }
+
 /* Custom hover class for dropdown */
-.dropdown:hover > .dropdown-menu {
+.dropdown:hover>.dropdown-menu {
   display: block;
+}
+
+.dropdown[data-open="true"] .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+html {
+  scroll-behavior: smooth;
 }

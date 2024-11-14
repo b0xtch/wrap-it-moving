@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import Footer from "../components/global/Footer.astro";
+---
+
+<BaseLayout>
+  <Navigation />
+  <div class="w-full mx-auto max-w-7xl items-center py-20 text-center">
+    <h1 style="font-size: 2rem; font-weight: bold; color: #333;">Thank You for Submitting a Quote</h1>
+    <p style="font-size: 1.2rem; color: #555; margin-top: 10px;">
+      We have received your quote request and will get back to you as soon as possible.
+    </p>
+  </div>
+  <Footer />
+</BaseLayout>
