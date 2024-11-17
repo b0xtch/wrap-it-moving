@@ -63,19 +63,19 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="w-full mx-auto md:px-12 px-8 max-w-7xl lg:px-16">
     <div
       x-data="{ open: false }"
-      class="relative flex flex-col w-full py-5 mx-auto bg-white md:items-center md:justify-between md:flex-row md:px-6"
+      class="relative flex flex-col w-full py-7 mx-auto bg-white md:items-center md:justify-between md:flex-row md:px-6"
     >
       <div class="flex flex-row items-center justify-between lg:justify-start">
-        <a href="/" class="text-blue inline-flex items-center gap-3">
-          <img alt="logo" class="h-14" src="/move.svg" />
-          <span class="font-bold font-display">Wrap-It Moving</span>
+        <a href="/" class="text-blue inline-flex items-center gap-4">
+          <img alt="logo" class="h-16" src="/move.svg" />
+          <span class="font-bold font-display text-2xl">Wrap-It Moving</span>
         </a>
         <button
           @click="open = !open"
-          class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-black focus:outline-none focus:text-black lg:hidden"
+          class="inline-flex items-center justify-center p-3 text-gray-400 hover:text-black focus:outline-none focus:text-black lg:hidden"
         >
           <svg
-            class="w-6 h-6"
+            class="w-7 h-7"
             stroke="currentColor"
             fill="none"
             viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               <li class={links?.length ? "group" : ""}>
                 {links?.length ? (
                   <>
-                    <button class="px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400 lg:ml-auto items-center">
+                    <button class="px-3 lg:px-8 py-3 md:px-4 text-lg font-medium text-black hover:text-accent-400 lg:ml-auto items-center">
                       {text}
                     </button>
                     <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible">
@@ -118,7 +118,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                         <li>
                           <a
                             class:list={[
-                              "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                              "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-3 px-6 block whitespace-no-wrap",
                               { "aw-link-active": href2 === currentPath },
                             ]}
                             href={href2}
@@ -132,7 +132,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 ) : (
                   <a
                     class:list={[
-                      "px-2 lg:px-6 py-2 md:px-3 text-sm font-medium text-black hover:text-accent-400 items-center",
+                      "px-3 lg:px-8 py-3 md:px-4 text-lg font-medium text-black hover:text-accent-400 items-center",
                       { "aw-link-active": href === currentPath },
                     ]}
                     href={href}
@@ -146,16 +146,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         </ul>
 
         <!-- Request a Quote and Call Now buttons -->
-        <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
+        <div class="inline-flex items-center gap-4 list-none lg:ml-auto">
           <a
             href="/contact"
-            class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full"
+            class="inline-flex items-center h-14 justify-center px-8 py-3 text-lg font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full"
           >
             Request a Quote
           </a>
           <a
             href="tel:+1-236-867-8800"
-            class="inline-flex items-center h-8 justify-center px-4 py-2 text-sm font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full"
+            class="inline-flex items-center h-14 justify-center px-8 py-3 text-lg font-medium rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto text-center text-white w-full"
           >
             Call Now!
           </a>
