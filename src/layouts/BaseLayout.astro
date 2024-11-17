@@ -7,8 +7,10 @@ import BaseHead from "../components/BaseHead.astro";
   class="scroll-smooth selection:bg-accent-500 selection:text-white no-touchevents hydrated">
   <head>
     <BaseHead />
+    <!-- Add viewport meta tag to restrict zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
-  <body class="bg-white">
+  <body class="bg-white overflow-x-hidden touch-action-pan-y">
     <slot />
   </body>
 </html>
