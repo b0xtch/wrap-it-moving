@@ -52,25 +52,37 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     console.log('Files received:', files);
 
     // Process files for attachment if available
-    const attachments = await Promise.all(
-      files.map(async (file: any) => {
-        if (file instanceof File) {
-          const buffer = await file.arrayBuffer();
-          return {
-            filename: file.name,
-            content: Buffer.from(buffer),
-            contentType: file.type,
-            disposition: 'attachment',
-          };
-        } else {
-          console.log('Skipping non-file item:', file);
-          return null;
-        }
-      })
-    );
+    const MAX_FILE_SIZE = 5 * 1024 * 1024; // Set max file size to 5MB
 
-    // Filter out any null attachments
-    const validAttachments = attachments.filter(Boolean);
+const attachments = await Promise.all(
+  files.map(async (file: any) => {
+    // Check if the file has a valid name, size, and is within the size limit
+    if (file instanceof File && file.name && file.size > 0 && file.size <= MAX_FILE_SIZE) {
+      const buffer = await file.arrayBuffer();
+      return {
+        filename: file.name,
+        content: Buffer.from(buffer),
+        contentType: file.type,
+        disposition: 'attachment',
+      };
+    } else {
+      if (file.size > MAX_FILE_SIZE) {
+        console.log(`Skipping file ${file.name}: exceeds maximum size of ${MAX_FILE_SIZE / (1024 * 1024)}MB`);
+      } else {
+        console.log('Skipping invalid or empty file:', file);
+      }
+      return null;
+    }
+  })
+);
+
+// Filter out any null attachments
+const validAttachments = attachments.filter(Boolean);
+
+// Return a response if no files are valid
+if (validAttachments.length !== files.length) {
+  console.warn('Some files were skipped due to size or invalid content.');
+}
 
     // Prepare the email content
     const emailBody = `
