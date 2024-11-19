@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseHead from "../components/BaseHead.astro";
 import Navigation from "../components/global/Navigation.astro";
 import Hero from "../components/landing/Hero.astro";
 import SectionOne from "../components/landing/SectionOne.astro";
@@ -9,6 +10,13 @@ import Pricing from "../components/landing/Pricing.astro";
 import Cta from "../components/global/Cta.astro";
 import Footer from "../components/global/Footer.astro";
 ---
+<BaseHead>
+  <title>Wrap-It Moving - Vancouver's Trusted Movers</title>
+  <meta
+    name="description"
+    content="Reliable moving services in Vancouver. Effortlessly handle your move with Wrap-It Moving, Vancouver's trusted movers."
+  />
+</BaseHead>
 <BaseLayout>
   <Navigation />
   <Hero />
