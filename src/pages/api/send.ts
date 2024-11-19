@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import type { APIRoute } from 'astro';
 
 export const POST: APIRoute = async ({ request, redirect }) => {
-  // Setup nodemailer transporter
+  // Setup nodemailer transporters
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT),
