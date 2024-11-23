@@ -123,3 +123,9 @@ html, body {
 html {
   scroll-behavior: smooth;
 }
+ion-icon {
+  display: inline-block; /* Ensure it's displayed correctly */
+  width: 16px !important; /* Set a consistent width */
+  height: 16px !important; /* Set a consistent height */
+  vertical-align: middle; /* Aligns with text properly */
+}
