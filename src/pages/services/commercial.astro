@@ -3,37 +3,40 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navigation from "../../components/global/Navigation.astro";
 import Footer from "../../components/global/Footer.astro";
 import Hero from "../../components/services/Hero.astro";
-import Content from "../../components/services/Content.astro"
-
+import Content from "../../components/services/Content.astro";
 ---
 
 <BaseLayout>
   <Navigation />
-  
+
   <Hero
     tagline="Commercial Service"
     image={{
-      src: '/services/comm-1.jpg',
-      alt: 'AstroWind Hero Image',
+      src: "/services/comm-1.jpg",
+      alt: "AstroWind Hero Image",
     }}
   >
     <Fragment slot="title">
-      VANCOUVER’S PREMIER CHOICE FOR COMMERCIAL MOVES <br/>
+      VANCOUVER’S PREMIER CHOICE<span
+        class="text-accent dark:text-orange highlight"
+      >
+        FOR
+      </span> COMMERCIAL MOVES <br />
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        Moving to a new office space or reconfiguring your work place?  Let Wrap-it Moving help make it hassle-free!
+        Moving to a new office space or reconfiguring your work place? Let
+        Wrap-it Moving help make it hassle-free!
       </span>
     </Fragment>
   </Hero>
 
   <Content
     title="WE MOVE YOU SO YOU CAN KEEP MOVING!"
-    subtitle="Work or running a business is stressful enough!  Let Wrap-it Moving help remove stress from your office relocation.  We can help with packing, unpacking, moving or assembling office equipment or furniture, to a new location or within your current work space.  Let us handle the many moving parts of a move so you focus your energy on the new chapter of your business venture."
+    subtitle="Work or running a business is stressful enough!  Let Wrap-it Moving help remove stress from your office relocation.  We can help with packing, unpacking, moving or assembling office equipment or furniture, to a new location or within your current work space.  Let us handle the many moving parts of a move so you can focus your energy on the new chapter of your business venture."
     isReversed
-  >
-  </Content>
+  />
 
-  <Footer/>
+  <Footer />
 </BaseLayout>
