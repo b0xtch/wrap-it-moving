@@ -17,7 +17,20 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   try {
     // Parse form data
     const data = await request.formData();
+    
+    const hiddenField = data.get('hidden_field');
+    if (hiddenField) {
+      console.error("Bot detected: hidden field filled out");
+      return new Response("Bot detected", { status: 400 });
+    }
 
+    // Retrieve and validate time-based field
+    const formStartTime = Number(data.get('form_start_time'));
+    const currentTime = Date.now();
+    if (currentTime - formStartTime < 3000) { // Less than 3 seconds
+      console.error("Bot detected: form submitted too quickly");
+      return new Response("Bot detected", { status: 400 });
+    }
     // Retrieve standard form inputs
     const name = data.get('name');
     const email = data.get('email');

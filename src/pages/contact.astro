@@ -42,6 +42,14 @@ import Footer from "../components/global/Footer.astro";
                     method="post"
                     enctype="multipart/form-data"
                 >
+                    <input
+                        type="text"
+                        name="hidden_field"
+                        style="display: none;"
+                        tabindex="-1"
+                        autocomplete="off"
+                    />
+                    <input type="hidden" name="form_start_time" value="" />
                     <div
                         style="display: flex; justify-content: space-between; margin-top: 20px;"
                     >
@@ -548,4 +556,13 @@ import Footer from "../components/global/Footer.astro";
             this.value = originalValue;
         });
     </script>
+    <script>
+        // Set the form start time dynamically when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+          const formStartTime = document.querySelector('input[name="form_start_time"]');
+          if (formStartTime) {
+            formStartTime.value = Date.now(); // Record the current timestamp
+          }
+        });
+      </script>
 </BaseLayout>

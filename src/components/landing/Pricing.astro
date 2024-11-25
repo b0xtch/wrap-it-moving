@@ -11,186 +11,170 @@
   </div>
   <div class="items-center px-8 lg:pt-12 pb-24 mx-auto max-w-7xl lg:px-16">
     <div
-      class="grid max-w-2xl grid-cols-1 py-4 -mx-4 sm:grid-cols-2 gap-y-10 sm:mx-auto lg:max-w-none lg:grid-cols-4 xl:gap-x-4 lg:bg-gray-50 lg:border border-gray-500/10 lg:rounded-3xl"
+      class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 lg:gap-y-12 lg:bg-gray-50 lg:border border-gray-500/10 lg:rounded-3xl"
     >
-      <!-- Pricing Tier 1: Local Move -->
-      <section class="flex flex-col px-6 rounded-3xl lg:py-8">
-        <p class="text-gray-500 text-sm">
+      <!-- Pricing Tier -->
+      <section
+        class="flex flex-col items-center justify-between px-6 py-8 bg-white rounded-3xl shadow-md"
+      >
+        <p class="text-gray-500 text-sm text-center">
           plus
           <a
             href="/pricing#travel-zone-map"
-            class="text-blue-500 underline hover:text-blue-700">travel time</a
+            class="text-blue-500 underline hover:text-blue-700"
+            >travel time</a
           >
         </p>
-        <h3 class="mt-5 text-lg text-black font-display">One Mover</h3>
-
         <p
-          class="order-first text-5xl font-light tracking-tight text-black font-display"
+          class="order-first text-5xl font-light tracking-tight text-black font-display mt-4"
         >
           $99/hr
         </p>
+        <h3 class="mt-4 text-lg text-black font-display text-center">
+          One Mover
+        </h3>
         <ul
           role="list"
-          class="flex flex-col order-last mt-10 text-sm text-gray-600 gap-y-3"
+          class="flex flex-col mt-6 text-sm text-gray-600 gap-y-3 text-center"
         >
-          <li class="flex items-center">
+          <li class="flex items-center justify-center">
             <ion-icon
-              class="w-4 h-4 flex-shrink-0"
+              class="w-5 h-5 flex-shrink-0"
               name="checkmark-outline"
               role="img"
               aria-label="checkmark outline"
-            >
-            </ion-icon>
+            ></ion-icon>
             <span class="ml-4"
               >Perfect for small items or a 1-bedroom apartment</span
             >
           </li>
-          <!-- Additional features -->
         </ul>
         <a
-          class="inline-flex items-center justify-center h-12 mt-8 rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto px-6 py-3 text-center text-white w-full"
-          href="/pricing">Get started</a
+          class="inline-flex items-center justify-center h-12 mt-8 w-full rounded-xl bg-orange text-white border border-orange hover:bg-transparent hover:border-blue hover:text-blue duration-200 px-6 py-3 text-center"
+          href="/pricing"
+          >Get started</a
         >
       </section>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const travelTimeLink = document.getElementById("travel-time-link");
-          const travelZoneMap = document.getElementById("travel-zone-map");
 
-          travelTimeLink.addEventListener("click", function () {
-            travelZoneMap.scrollIntoView({ behavior: "smooth" });
-          });
-        });
-      </script>
-      <!-- Pricing Tier 2: Long-Distance Move -->
-      <section class="flex flex-col px-6 rounded-3xl lg:py-8">
-        <p class="mt-2 text-sm text-gray-500">
+      <!-- Repeat for other tiers -->
+      <section
+        class="flex flex-col items-center justify-between px-6 py-8 bg-white rounded-3xl shadow-md"
+      >
+        <p class="text-gray-500 text-sm text-center">
           plus
           <a
             href="/pricing#travel-zone-map"
-            class="text-blue-500 underline hover:text-blue-700">travel time</a
+            class="text-blue-500 underline hover:text-blue-700"
+            >travel time</a
           >
         </p>
-        <h3 class="mt-5 text-lg text-black font-display">Two Movers</h3>
         <p
-          class="order-first text-5xl font-light tracking-tight text-black font-display"
+          class="order-first text-5xl font-light tracking-tight text-black font-display mt-4"
         >
           $139/hr
         </p>
+        <h3 class="mt-4 text-lg text-black font-display text-center">
+          Two Movers
+        </h3>
         <ul
           role="list"
-          class="flex flex-col order-last mt-10 text-sm text-gray-600 gap-y-3"
+          class="flex flex-col mt-6 text-sm text-gray-600 gap-y-3 text-center"
         >
-          <li class="flex items-center">
+          <li class="flex items-center justify-center">
             <ion-icon
               class="w-5 h-5 flex-shrink-0"
               name="checkmark-outline"
               role="img"
               aria-label="checkmark outline"
-            >
-            </ion-icon>
+            ></ion-icon>
             <span class="ml-4">Ideal for a 1-2 bedroom apartment</span>
           </li>
-          <!-- <li class="flex items-center">
-            <ion-icon 
-              class="w-5 h-5 flex-shrink-0" 
-              name="checkmark-outline" 
-              role="img" 
-              aria-label="checkmark outline">
-            </ion-icon>
-            <span class="ml-4">Ideal for a small 2-bedroom apartment</span>
-          </li> -->
-          <!-- Additional features -->
         </ul>
         <a
-          class="inline-flex items-center justify-center h-12 mt-8 rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto px-6 py-3 text-center text-white w-full"
-          href="/pricing">Get started</a
+          class="inline-flex items-center justify-center h-12 mt-8 w-full rounded-xl bg-orange text-white border border-orange hover:bg-transparent hover:border-blue hover:text-blue duration-200 px-6 py-3 text-center"
+          href="/pricing"
+          >Get started</a
         >
       </section>
 
-      <!-- Pricing Tier 3: Commercial Move -->
-      <section class="flex flex-col px-6 rounded-3xl lg:py-8">
-        <p class="mt-2 text-sm text-gray-500">
+      <section
+        class="flex flex-col items-center justify-between px-6 py-8 bg-white rounded-3xl shadow-md"
+      >
+        <p class="text-gray-500 text-sm text-center">
           plus
           <a
             href="/pricing#travel-zone-map"
-            class="text-blue-500 underline hover:text-blue-700">travel time</a
+            class="text-blue-500 underline hover:text-blue-700"
+            >travel time</a
           >
         </p>
-        <h3 class="mt-5 text-lg text-black font-display">Three Movers</h3>
         <p
-          class="order-first text-5xl font-light tracking-tight text-black font-display"
+          class="order-first text-5xl font-light tracking-tight text-black font-display mt-4"
         >
           $179/hr
         </p>
+        <h3 class="mt-4 text-lg text-black font-display text-center">
+          Three Movers
+        </h3>
         <ul
           role="list"
-          class="flex flex-col order-last mt-10 text-sm text-gray-600 gap-y-3"
+          class="flex flex-col mt-6 text-sm text-gray-600 gap-y-3 text-center"
         >
-          <li class="flex items-center">
+          <li class="flex items-center justify-center">
             <ion-icon
               class="w-5 h-5 flex-shrink-0"
               name="checkmark-outline"
               role="img"
               aria-label="checkmark outline"
-            >
-            </ion-icon>
+            ></ion-icon>
             <span class="ml-4">Ideal for a 2-4 bedroom apartment</span>
           </li>
-          <!-- <li class="flex items-center">
-    <ion-icon
-      class="w-5 h-5 flex-shrink-0"
-      name="checkmark-outline"
-      role="img"
-      aria-label="checkmark outline">
-    </ion-icon>
-    <span class="ml-4">Ideal for a small 3-bedroom apartment</span>
-  </li> -->
-          <!-- Additional features -->
         </ul>
-
         <a
-          class="inline-flex items-center justify-center h-12 mt-8 rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto px-6 py-3 text-center text-white w-full"
-          href="/pricing">Get started</a
+          class="inline-flex items-center justify-center h-12 mt-8 w-full rounded-xl bg-orange text-white border border-orange hover:bg-transparent hover:border-blue hover:text-blue duration-200 px-6 py-3 text-center"
+          href="/pricing"
+          >Get started</a
         >
       </section>
 
-      <!-- Pricing Tier 4: Specialized Services -->
-      <section class="flex flex-col px-6 rounded-3xl lg:py-8">
-        <h3 class="mt-5 text-lg text-black font-display">Long Distance Move</h3>
-        <p class="mt-2 text-sm text-gray-500">
-          For unique and delicate moving and any other services
-        </p>
-        <p
-          class="order-first text-5xl font-light tracking-tight text-black font-display"
-        >
-          Varies
-        </p>
-        <ul
-          role="list"
-          class="flex flex-col order-last mt-10 text-sm text-gray-600 gap-y-3"
-        >
-          <li class="flex items-center">
-            <ion-icon
-              class="w-5 h-5 flex-shrink-0"
-              name="checkmark-outline"
-              role="img"
-              aria-label="checkmark outline"
-            >
-            </ion-icon>
-            <span class="ml-4">Guaranteed flat rate</span>
-          </li>
-          <!-- Additional features -->
-        </ul>
-
-        <a
-          class="inline-flex items-center justify-center h-12 mt-8 rounded-xl focus-visible:outline-black focus:outline-none bg-orange border-2 border-orange duration-200 focus-visible:ring-blue hover:bg-transparent hover:border-blue hover:text-blue lg:w-auto px-6 py-3 text-center text-white w-full"
-          href="/pricing">Get started</a
-        >
-      </section>
+      <section
+  class="flex flex-col items-center justify-between px-6 py-8 bg-white rounded-3xl shadow-md"
+>
+  <p
+    class="order-first text-5xl font-light tracking-tight text-black font-display mt-4"
+  >
+    Varies
+  </p>
+  <h3 class="mt-4 text-lg text-black font-display text-center">
+    Long Distance Move
+  </h3>
+  <p class="mt-2 text-sm text-gray-500 text-center">
+    For unique and delicate moving <br /> and any other services
+  </p>
+  <ul
+    role="list"
+    class="flex flex-col mt-6 text-sm text-gray-600 gap-y-3 text-center"
+  >
+    <li class="flex items-center justify-center">
+      <ion-icon
+        class="w-5 h-5 flex-shrink-0"
+        name="checkmark-outline"
+        role="img"
+        aria-label="checkmark outline"
+      ></ion-icon>
+      <span class="ml-4">Guaranteed flat rate</span>
+    </li>
+  </ul>
+  <a
+    class="inline-flex items-center justify-center h-12 mt-8 w-full rounded-xl bg-orange text-white border border-orange hover:bg-transparent hover:border-blue hover:text-blue duration-200 px-6 py-3 text-center"
+    href="/pricing"
+    >Get started</a
+  >
+</section>
     </div>
   </div>
 </section>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const travelTimeLink = document.getElementById("travel-time-link");
