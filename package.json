@@ -22,7 +22,7 @@
     "@rollup/rollup-linux-x64-gnu": "4.6.1"
   },
   "dependencies": {
-    "@astrojs/vercel": "^7.1.1",
+    "@astrojs/vercel": "^8.0.6",
     "@sendgrid/mail": "^8.1.4",
     "@vercel/analytics": "^1.4.1",
     "astro-icon": "^1.0.2",
