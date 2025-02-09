@@ -8,5 +8,5 @@ export default defineConfig({
   site: "https://wrapitmoving.com",
   integrations: [tailwind(), sitemap(), icon()],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
 });
